@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#fff9f5" />
+<title>Selamat Ulang Tahun, tetehh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fff9f5;
+    --bg-2:#fff1e9;
+    --ink:#2c2119;
+    --muted:#7d6f66;
+    --rose:#ff6f91;
+    --rose-deep:#e64c72;
+    --amber:#ffab5e;
+    --lilac:#9b8cff;
+    --mint:#5fd3b6;
+    --card:#ffffff;
+    --line:rgba(44,33,25,.09);
+    --shadow:0 18px 40px -22px rgba(80,50,35,.35);
+    --r:22px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    background:
+      radial-gradient(1200px 700px at 90% -10%, #ffe6ef 0%, transparent 60%),
+      radial-gradient(900px 600px at -10% 20%, #fff0dd 0%, transparent 55%),
+      var(--bg);
+    color:var(--ink);
+    line-height:1.65;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:600;line-height:1.15;letter-spacing:-.02em}
+  .wrap{width:min(1080px,92vw);margin:0 auto}
+  section{padding:clamp(64px,10vw,120px) 0;position:relative}
+
+  .pill{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:8px 16px;border-radius:999px;
+    background:rgba(255,255,255,.75);border:1px solid var(--line);
+    font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--rose-deep);backdrop-filter:blur(8px);box-shadow:0 8px 20px -14px rgba(80,50,35,.5)
+  }
+  .pill svg{width:15px;height:15px}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;
+    padding:14px 26px;border-radius:999px;border:0;cursor:pointer;
+    font-family:inherit;font-size:15px;font-weight:600;text-decoration:none;
+    transition:transform .35s cubic-bezier(.2,.9,.3,1.3), box-shadow .35s, background .3s;
+  }
+  .btn svg{width:18px;height:18px}
+  .btn-primary{background:linear-gradient(135deg,var(--rose),var(--amber));color:#fff;box-shadow:0 16px 30px -14px rgba(230,76,114,.75)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow)}
+  .btn:hover{transform:translateY(-3px) scale(1.02)}
+  .btn:active{transform:translateY(0) scale(.98)}
+
+  .icon{
+    width:46px;height:46px;border-radius:15px;display:grid;place-items:center;
+    background:linear-gradient(140deg,#fff,#fff3ec);border:1px solid var(--line);
+    box-shadow:0 10px 22px -16px rgba(80,50,35,.6);flex:none;
+    transition:transform .5s cubic-bezier(.2,.9,.3,1.4)
+  }
+  .icon svg{width:22px;height:22px}
+  .card:hover .icon{transform:rotate(-8deg) scale(1.1)}
+
+  svg.ic{fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding-top:70px}
+  .hero h1{font-size:clamp(40px,8vw,84px);margin:22px 0 18px}
+  .hero h1 .grad{background:linear-gradient(120deg,var(--rose-deep),var(--amber) 60%,var(--lilac));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p.lead{font-size:clamp(16px,2.2vw,19px);color:var(--muted);max-width:560px;margin:0 auto}
+  .hero .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+
+  .float{position:absolute;color:var(--rose);opacity:.55;animation:float 7s ease-in-out infinite;pointer-events:none}
+  .float svg{width:100%;height:100%}
+  @keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-26px) rotate(8deg)}}
+
+  .scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:12px;letter-spacing:.18em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+  .scroll-cue span.line{width:1px;height:38px;background:linear-gradient(var(--muted),transparent);animation:cue 1.8s ease-in-out infinite}
+  @keyframes cue{0%,100%{opacity:.25;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+  /* ---------- COUNTDOWN ---------- */
+  .count{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:640px;margin:34px auto 0}
+  .count div{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 8px;text-align:center;box-shadow:var(--shadow);transition:transform .4s}
+  .count div:hover{transform:translateY(-5px)}
+  .count b{display:block;font-family:'Fraunces',serif;font-size:clamp(26px,5vw,40px);line-height:1;background:linear-gradient(135deg,var(--rose-deep),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .count small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+  .sec-head{text-align:center;max-width:620px;margin:0 auto clamp(36px,5vw,56px)}
+  .sec-head h2{font-size:clamp(28px,4.6vw,44px);margin:16px 0 12px}
+  .sec-head p{color:var(--muted)}
+
+  /* ---------- CARDS ---------- */
+  .grid{display:grid;gap:20px}
+  .g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    padding:26px 24px;box-shadow:var(--shadow);position:relative;overflow:hidden;
+    transition:transform .5s cubic-bezier(.2,.9,.3,1.2), box-shadow .5s;
+  }
+  .card::after{content:"";position:absolute;inset:auto -30% -60% auto;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(255,111,145,.16),transparent 70%);transition:transform .6s}
+  .card:hover{transform:translateY(-8px);box-shadow:0 30px 50px -26px rgba(80,50,35,.45)}
+  .card:hover::after{transform:scale(1.6)}
+  .card h3{font-size:20px;margin:18px 0 8px}
+  .card p{font-size:14.5px;color:var(--muted)}
+
+  /* ---------- TIMELINE ---------- */
+  .tl{position:relative;max-width:760px;margin:0 auto;padding-left:8px}
+  .tl::before{content:"";position:absolute;left:31px;top:12px;bottom:12px;width:2px;background:linear-gradient(var(--rose),var(--amber),transparent)}
+  .tl-item{display:flex;gap:22px;padding:16px 0;position:relative}
+  .tl-dot{width:48px;height:48px;flex:none;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);z-index:1;transition:transform .45s cubic-bezier(.2,.9,.3,1.5)}
+  .tl-item:hover .tl-dot{transform:scale(1.12) rotate(-10deg)}
+  .tl-dot svg{width:21px;height:21px;color:var(--rose-deep)}
+  .tl-body{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 20px;box-shadow:var(--shadow);flex:1;transition:transform .4s}
+  .tl-item:hover .tl-body{transform:translateX(6px)}
+  .tl-body h4{font-family:'Fraunces',serif;font-size:18px;margin-bottom:4px}
+  .tl-body p{font-size:14.5px;color:var(--muted)}
+
+  /* ---------- LETTER ---------- */
+  .letter{
+    max-width:760px;margin:0 auto;background:var(--card);
+    border:1px solid var(--line);border-radius:28px;padding:clamp(30px,5vw,54px);
+    box-shadow:var(--shadow);position:relative;overflow:hidden
+  }
+  .letter .quote{position:absolute;top:-14px;right:18px;font-family:'Fraunces',serif;font-size:150px;color:rgba(255,111,145,.12);line-height:1}
+  .letter p{font-size:clamp(16px,2.2vw,18.5px);color:#58493f;margin-bottom:16px}
+  .letter .sign{font-family:'Fraunces',serif;font-size:26px;color:var(--rose-deep);margin-top:26px;transform:rotate(-2deg);display:inline-block}
+  .letter .meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:26px;padding-top:22px;border-top:1px dashed var(--line);font-size:13px;color:var(--muted)}
+  .letter .meta span{display:inline-flex;align-items:center;gap:7px}
+  .letter .meta svg{width:15px;height:15px;color:var(--rose)}
+
+  /* ---------- CAKE ---------- */
+  .cake-box{text-align:center}
+  .cake-stage{display:inline-block;cursor:pointer;position:relative;transition:transform .4s cubic-bezier(.2,.9,.3,1.4);user-select:none}
+  .cake-stage:hover{transform:translateY(-6px) scale(1.03)}
+  .flame{transform-origin:center bottom;animation:flick 1.1s ease-in-out infinite alternate}
+  .flame.f2{animation-delay:.25s}.flame.f3{animation-delay:.5s}
+  @keyframes flick{from{transform:scale(1) translateY(0);opacity:1}to{transform:scale(1.18,.9) translateY(-2px);opacity:.82}}
+  .cake-stage.blown .flame{opacity:0;transform:scale(0);transition:.4s}
+  .smoke{opacity:0}
+  .cake-stage.blown .smoke{animation:smoke 1.4s ease-out forwards}
+  @keyframes smoke{0%{opacity:.5;transform:translateY(0) scale(.6)}100%{opacity:0;transform:translateY(-34px) scale(1.5)}}
+  .cake-hint{margin-top:14px;font-size:13.5px;color:var(--muted);letter-spacing:.03em}
+  .wish-msg{
+    max-width:520px;margin:22px auto 0;
+    background:linear-gradient(135deg,#fff,#fff4ec);border:1px solid var(--line);border-radius:18px;
+    padding:18px 22px;font-family:'Fraunces',serif;font-size:19px;color:var(--rose-deep);
+    opacity:0;transform:translateY(14px);transition:.6s cubic-bezier(.2,.9,.3,1.2);box-shadow:var(--shadow)
+  }
+  .wish-msg.on{opacity:1;transform:none}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:46px 0 60px;text-align:center;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  footer .heart{display:inline-flex;align-items:center;gap:8px}
+  footer svg{width:17px;height:17px;color:var(--rose-deep);animation:beat 1.4s ease-in-out infinite}
+  @keyframes beat{0%,100%{transform:scale(1)}30%{transform:scale(1.25)}}
+
+  /* ---------- REVEAL ---------- */
+  .rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s cubic-bezier(.2,.8,.25,1)}
+  .rv.in{opacity:1;transform:none}
+  .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+  #fx{position:fixed;inset:0;pointer-events:none;z-index:99}
+
+  @media(max-width:640px){
+    .count{grid-template-columns:repeat(2,1fr)}
+    .tl::before{left:23px}
+    .tl-dot{width:40px;height:40px}
+    .letter .quote{font-size:100px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition-duration:.01ms!important}
+    .rv{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+
+<!-- HERO -->
+<section class="hero" id="atas">
+  <span class="float" style="width:34px;height:34px;top:16%;left:9%;animation-delay:.2s;color:var(--amber)">
+    <svg class="ic" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+  </span>
+  <span class="float" style="width:28px;height:28px;top:26%;right:11%;animation-delay:1.1s;color:var(--lilac)">
+    <svg class="ic" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M18 6l-2.5 2.5M8.5 15.5L6 18"/></svg>
+  </span>
+  <span class="float" style="width:40px;height:40px;bottom:24%;left:13%;animation-delay:.7s;color:var(--rose)">
+    <svg class="ic" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 2-3.2 2-5a5 5 0 0 0-9-3 5 5 0 0 0-9 3c0 1.8.5 3.5 2 5l7 7z"/></svg>
+  </span>
+  <span class="float" style="width:30px;height:30px;bottom:30%;right:14%;animation-delay:1.6s;color:var(--mint)">
+    <svg class="ic" viewBox="0 0 24 24"><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-7"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/><path d="M12 7S9.5 3 7.5 3a2.5 2.5 0 0 0 0 5M12 7s2.5-4 4.5-4a2.5 2.5 0 0 1 0 5"/></svg>
+  </span>
+
+  <div class="wrap">
+    <span class="pill rv">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+      Untuk teteh tercinta
+    </span>
+    <h1 class="rv d1">Selamat Ulang Tahun,<br><span class="grad">Sis!</span></h1>
+    <p class="lead rv d2">Hari ini dunia merayakan hari di mana seseorang yang luar biasa lahir — kakak perempuan terbaik yang pernah dimiliki keluarga ini. 🎂</p>
+    <div class="cta rv d3">
+      <a href="#pesan" class="btn btn-primary">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M4 4h16v13H7l-3 3z"/><path d="M8 9h8M8 13h5"/></svg>
+        pesan dari hati ak
+      </a>
+      <button class="btn btn-ghost" id="btnTopi">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M6 20h12"/><path d="M7 16l-1-9 5 3 5-3-1 9z"/><path d="M12 10v6"/></svg>
+        rayain yuk
+      </button>
+    </div>
+
+    <div class="count rv d4" id="count">
+      <div><b id="d">00</b><small>Hari</small></div>
+      <div><b id="h">00</b><small>Jam</small></div>
+      <div><b id="m">00</b><small>Menit</small></div>
+      <div><b id="s">00</b><small>Detik</small></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>scroll</span><span class="line"></span></div>
+</section>
+
+<!-- HARAPAN -->
+<section id="harapan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="pill rv">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>
+        Harapan
+      </span>
+      <h2 class="rv d1">Empat doa untuk tahun barumu</h2>
+      <p class="rv d2">Sederhana, tapi tulus — semoga semuanya benar-benar terjadi.</p>
+    </div>
+
+    <div class="grid g4">
+      <div class="card rv">
+        <div class="icon" style="color:var(--rose-deep)">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 2-3.2 2-5a5 5 0 0 0-9-3 5 5 0 0 0-9 3c0 1.8.5 3.5 2 5l7 7z"/></svg>
+        </div>
+        <h3>Kesehatan</h3>
+        <p>Tubuh yang kuat, tidur yang nyenyak, dan energi tiap pagi untuk menjalani hari.</p>
+      </div>
+      <div class="card rv d1">
+        <div class="icon" style="color:var(--amber)">
+          <svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.4 2 3.5 2 3.5-2 3.5-2"/><path d="M9 9.5h.01M15 9.5h.01"/></svg>
+        </div>
+        <h3>Kebahagiaan</h3>
+        <p>Tawa yang tiba tanpa alasan dan hati yang selalu merasa cukup.</p>
+      </div>
+      <div class="card rv d2">
+        <div class="icon" style="color:var(--lilac)">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/><path d="M12 2l2.2 4.4L19 8l-4 3.2.9 4.8L12 13.8 8.1 16l.9-4.8L5 8l4.8-.6z"/></svg>
+        </div>
+        <h3>Mimpi</h3>
+        <p>Semua yang dulu terasa jauh, perlahan menjadi cerita yang kamu ukir.</p>
+      </div>
+      <div class="card rv d3">
+        <div class="icon" style="color:var(--mint)">
+          <svg class="ic" viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 6-7"/><path d="M14 8h5v5"/></svg>
+        </div>
+        <h3>Berkembang</h3>
+        <p>Kariernya melesat, ilmunya bertambah, dan langkahnya makin mantap.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOMEN -->
+<section id="momen" style="background:linear-gradient(180deg,transparent,rgba(255,241,233,.75),transparent)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="pill rv">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.2"/></svg>
+        Kenangan
+      </span>
+      <h2 class="rv d1">Sekilas perjalanan kita</h2>
+      <p class="rv d2">Hal-hal kecil yang selalu bikin tersenyum saat diingat.</p>
+    </div>
+
+    <div class="tl">
+      <div class="tl-item rv">
+        <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M4 7h3l2-2h6l2 2h3v12H4z"/><circle cx="12" cy="13" r="3.2"/></svg></div>
+        <div class="tl-body">
+          <h4>Album foto yang tak pernah habis</h4>
+          <p>meskipun jarang punya foto berdua, tapi dekatnya terasa sampe punclut</p>
+        </div>
+      </div>
+      <div class="tl-item rv d1">
+        <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></div>
+        <div class="tl-body">
+          <h4>siapa yang dulu pernah karoke bareng cung</h4>
+          <p>kwkwkwkwk ceritanya duet</p>
+        </div>
+      </div>
+      <div class="tl-item rv d2">
+        <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10z"/></svg></div>
+        <div class="tl-body">
+          <h4>Dia yang selalu ada</h4>
+          <p>Curhatan larut, masalah kecil, dan jawaban yang selalu menenangkan.</p>
+        </div>
+      </div>
+      <div class="tl-item rv d3">
+        <div class="tl-dot"><svg class="ic" viewBox="0 0 24 24"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.4 7.2 17.9l.9-5.4L4.2 8.7l5.4-.8z"/></svg></div>
+        <div class="tl-body">
+          <h4>Momen terbaik? Belum terjadi</h4>
+          <p>Ada banyak cerita seru yang menunggu untuk ditulis tahun ini.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PESAN -->
+<section id="pesan">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="pill rv">
+        <svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        Pesan
+      </span>
+      <h2 class="rv d1">Sedikit tulisan dari hati</h2>
+    </div>
+
+    <div class="letter rv d2">
+      <span class="quote">&ldquo;</span>
+      <p>tetehku</p>
+      <p>Terima kasih sudah jadi kakak yang sabar, yang selalu jadi tempat pulang saat dunia terasa berat, dan yang paling jago bikin hal biasa jadi kenangan luar biasa.</p>
+      <p>Di hari ulang tahunmu ini, aku cuma mau kamu tahu: kamu dihargai, kamu disayangi, dan kamu layak mendapatkan semua hal baik yang datang kepadamu.</p>
+      <p>Semoga tahun ini lebih lembut padamu — mimpimu lebih dekat, hatimu lebih tenang, dan tawarmu tak pernah berhenti.</p>
+      <span class="sign">— Dengan sayang, adikmu</span>
+
+      <div class="meta">
+        <span><svg class="ic" viewBox="0 0 24 24"><path d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10z"/></svg> Ditunggu kado fisiknya</span>
+        <span><svg class="ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> Ditulis di hari spesialmu</span>
+        <span><svg class="ic" viewBox="0 0 24 24"><path d="M4 5h16v14H4z"/><path d="M4 7l8 6 8-6"/></svg> 100% tulus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KUE -->
+<section id="kue" style="background:linear-gradient(180deg,transparent,rgba(255,241,233,.75),transparent)">
+  <div class="wrap cake-box">
+    <span class="pill rv">
+      <svg class="ic" viewBox="0 0 24 24"><path d="M4 20h16"/><path d="M5 20v-6a3 3 0 0 1 3-3h8a3 3 0 0 1 3 3v6"/><path d="M12 11V7"/><path d="M12 7c-.8-1 .4-2.3 0-3.5"/></svg>
+      Tiup Lilinnya ( hati hati di tiup si dedot )
+    </span>
+    <div class="sec-head rv d1" style="margin-bottom:24px">
+      <h2>Satu permintaan, satu nafas</h2>
+      <p>Klik kuenya, lalu buka matanya — semoga jadi kenyataan.</p>
+    </div>
+
+    <div class="cake-stage rv d2" id="cake" role="button" tabindex="0" aria-label="Tiup lilin kue ulang tahun">
+      <svg width="230" height="230" viewBox="0 0 200 200">
+        <defs>
+          <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffd9e3"/><stop offset="1" stop-color="#ff9fb6"/>
+          </linearGradient>
+          <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffe9c9"/><stop offset="1" stop-color="#ffc078"/>
+          </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="176" rx="72" ry="10" fill="rgba(120,80,60,.10)"/>
+        <rect x="46" y="112" width="108" height="56" rx="14" fill="url(#gA)"/>
+        <path d="M46 122c9 8 18-6 27 2s18-6 27 2 18-6 27 2 18-6 27 2v-14a8 8 0 0 0-8-8H54a8 8 0 0 0-8 8z" fill="#fff" opacity=".85"/>
+        <rect x="60" y="76" width="80" height="42" rx="12" fill="url(#gB)"/>
+        <path d="M60 84c7 7 15-5 22 2s15-5 22 2 15-5 22 2v-8a8 8 0 0 0-8-8H68a8 8 0 0 0-8 8z" fill="#fff" opacity=".9"/>
+        <g stroke="#e0526f" stroke-width="5" stroke-linecap="round">
+          <path d="M80 76V56"/><path d="M100 76V50"/><path d="M120 76V56"/>
+        </g>
+        <g class="flame"><ellipse cx="80" cy="49" rx="5" ry="8.5" fill="#ffb347"/><ellipse cx="80" cy="51" rx="2.4" ry="4.4" fill="#fff1b8"/></g>
+        <g class="flame f2"><ellipse cx="100" cy="43" rx="5.5" ry="9.5" fill="#ff8a5b"/><ellipse cx="100" cy="45" rx="2.6" ry="4.8" fill="#fff1b8"/></g>
+        <g class="flame f3"><ellipse cx="120" cy="49" rx="5" ry="8.5" fill="#ffb347"/><ellipse cx="120" cy="51" rx="2.4" ry="4.4" fill="#fff1b8"/></g>
+        <g class="smoke" fill="#b9a99e">
+          <circle cx="80" cy="46" r="3"/><circle cx="100" cy="40" r="3.4"/><circle cx="120" cy="46" r="3"/>
+        </g>
+        <circle cx="74" cy="132" r="4" fill="#fff" opacity=".7"/>
+        <circle cx="104" cy="146" r="4" fill="#fff" opacity=".7"/>
+        <circle cx="126" cy="128" r="3.4" fill="#fff" opacity=".7"/>
+      </svg>
+    </div>
+
+    <p class="cake-hint rv d3">👆 klik kuenya</p>
+    <div class="wish-msg" id="wish">Permintaanmu sudah diteruskan ke bintang </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="heart">
+      Dibuat khusus untuk
+      <svg class="ic" viewBox="0 0 24 24"><path d="M19 14c1.5-1.5 2-3.2 2-5a5 5 0 0 0-9-3 5 5 0 0 0-9 3c0 1.8.5 3.5 2 5l7 7z"/></svg>
+      kakak terbaik · Selamat ulang tahun
+    </span>
+  </div>
+</footer>
+
+<script>
+const BIRTHDAY = { bulan: 10, tanggal: 8 };
+
+const pad = n => String(n).padStart(2,'0');
+function tick(){
+  const now = new Date();
+  let target = new Date(now.getFullYear(), BIRTHDAY.bulan-1, BIRTHDAY.tanggal, 0,0,0);
+  if(target <= now) target = new Date(now.getFullYear()+1, BIRTHDAY.bulan-1, BIRTHDAY.tanggal, 0,0,0);
+  const t = target - now;
+  const d = Math.floor(t/864e5), h = Math.floor(t/36e5)%24, m = Math.floor(t/6e4)%60, s = Math.floor(t/1e3)%60;
+  document.getElementById('d').textContent = pad(d);
+  document.getElementById('h').textContent = pad(h);
+  document.getElementById('m').textContent = pad(m);
+  document.getElementById('s').textContent = pad(s);
+}
+tick(); setInterval(tick, 1000);
+
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.14, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+const cv = document.getElementById('fx'), cx = cv.getContext('2d');
+let parts = [];
+function size(){ cv.width = innerWidth; cv.height = innerHeight; }
+size(); addEventListener('resize', size);
+const COLORS = ['#ff6f91','#ffab5e','#9b8cff','#5fd3b6','#ffd166','#fff'];
+function burst(n = 130){
+  for(let i=0;i<n;i++){
+    parts.push({
+      x: innerWidth/2 + (Math.random()-.5)*260,
+      y: innerHeight*0.42 + (Math.random()-.5)*80,
+      vx:(Math.random()-.5)*11, vy: Math.random()*-12 - 3,
+      w: 5+Math.random()*7, h: 6+Math.random()*9,
+      c: COLORS[(Math.random()*COLORS.length)|0],
+      rot: Math.random()*Math.PI, vr:(Math.random()-.5)*.28,
+      life: 1
+    });
+  }
+  if(parts.length) loop();
+}
+let running = false;
+function loop(){
+  if(running) return; running = true;
+  (function frame(){
+    cx.clearRect(0,0,cv.width,cv.height);
+    parts.forEach(p => { p.vy += .32; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life -= .006; });
+    parts = parts.filter(p => p.life > 0 && p.y < cv.height + 60);
+    parts.forEach(p => {
+      cx.save(); cx.globalAlpha = Math.max(p.life,0); cx.translate(p.x,p.y); cx.rotate(p.rot);
+      cx.fillStyle = p.c; cx.fillRect(-p.w/2,-p.h/2,p.w,p.h); cx.restore();
+    });
+    if(parts.length) requestAnimationFrame(frame);
+    else { cx.clearRect(0,0,cv.width,cv.height); running = false; }
+  })();
+}
+
+const cake = document.getElementById('cake'), wish = document.getElementById('wish');
+function tiup(){
+  cake.classList.add('blown');
+  wish.classList.add('on');
+  burst(160);
+  setTimeout(() => cake.classList.remove('blown'), 4200);
+}
+cake.addEventListener('click', tiup);
+cake.addEventListener('keydown', e => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); tiup(); } });
+document.getElementById('btnTopi').addEventListener('click', () => {
+  burst(180);
+  setTimeout(() => document.getElementById('kue').scrollIntoView({behavior:'smooth'}), 700);
+});
+</script>
+</body>
+</html>
